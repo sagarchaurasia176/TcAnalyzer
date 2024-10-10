@@ -6,10 +6,3 @@ A Time Complexity Analyzer is a tool or program that helps determine how efficie
 - This helps developers understand if their code is efficient or if it might slow down with larger inputs.
 
 
-## Tech Stack
-
-**Client:** Next js, Shadcn ui
-
-**Database:** Firebase
-
-
