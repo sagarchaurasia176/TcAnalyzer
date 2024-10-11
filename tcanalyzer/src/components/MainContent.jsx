@@ -1,8 +1,12 @@
 import React from 'react'
+import HeroComponent from './HeroComponent'
 
 const MainContent = () => {
   return (
-    <div>MainContent</div>
+    <div>
+        <HeroComponent/>
+      {/* Navbar */}
+    </div>
   )
 }
 
