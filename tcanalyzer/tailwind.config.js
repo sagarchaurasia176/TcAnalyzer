@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+        fontFamily:{
+          'header-font' : ['Protest Strike' , 'sans-serif']
+        },fontWeight:{
+          'fonts-hard' : ['400','700']
+        }
+
+    },
   },
   plugins: [],
 }
