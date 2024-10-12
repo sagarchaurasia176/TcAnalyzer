@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const HeaderBar = () => {
   return (
     <div>
-      <div className=" fixed w-full  bg-slate-50 p-2 text-white ">
+      <div className="  w-full   bg-slate-800   p-3 ">
         <header className="text-gray-600 body-font flex justify-between items-center">
           <div>
             <Link className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
@@ -19,13 +19,13 @@ const HeaderBar = () => {
               >
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
               </svg>
-              <b className="ml-3 text-xl font-extrabold items-center">
+              <b className="ml-3 text-xl  text-white font-extrabold items-center">
                 Tc-Analyzer
               </b>
             </Link>
           </div>
           <div className="flex  max-0 items-center">
-            <nav className=" space-x-12">
+            <nav className="  text-white space-x-12">
               <Link to="/">Home</Link>
               <Link to="/contact">Contact</Link>
               <Link to="/about">About us</Link>
