@@ -4,20 +4,23 @@ console.log(keyFeature);
 import FeaturePage from "../page/FeaturePage";
 const FeaturesComponent = () => {
   return (
-    <div className=" container max-w-max">
+    <div className=" ">
       <div className=" text-center">
-        <span className=" text-white  font-header-font  text-4xl">
+        <span className=" text-white   font-header-font  text-4xl">
           Key-Features
         </span>
       </div>
       <br />
 
       {/* cards */}
+      <div className="flex lg:flex-row  items-center justify-center sm:flex-col">
       {keyFeature.map((data, id) => (
         <>
           <FeaturePage data={data} key={id} />
         </>
       ))}
+      </div>
+    
     </div>
   );
 };
