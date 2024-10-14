@@ -2,6 +2,9 @@ import React from "react";
 import HeroComponent from "./HeroComponent";
 import FeaturesComponent from "./FeaturesComponent";
 import { motion, useScroll } from "framer-motion";
+import TryNow from "../page/TryNow";
+import ReadyToOptimize from "../page/ReadyToOptimize";
+import FotterPage from "../page/FotterPage";
 
 const MainContent = () => {
   const { scrollYProgress } = useScroll();
@@ -17,9 +20,19 @@ const MainContent = () => {
         <div className=" p-2">
           <FeaturesComponent />
         </div>
-        {/* <h2  className=" text-white">hie</h2> */}
-
-        {/* Navbar */}
+        <br />
+      <div>
+      <TryNow/>
+    </div>
+    <br />
+    <div>
+      <ReadyToOptimize/>
+    </div>
+    {/* footer */}
+    <br />
+    <div>
+      <FotterPage/>
+    </div>
       </div>
     </>
   );
