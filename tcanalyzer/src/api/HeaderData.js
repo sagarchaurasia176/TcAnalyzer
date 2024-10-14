@@ -28,3 +28,15 @@ export const keyFeature = [
     icons: TiTick,
   },
 ];
+
+export const tryItKnow = {
+    title:"Try It Now",
+    heading:"Time complexity Analyxzer",
+    para:"enter your code snippet to estimate its time complexity"
+}
+
+export const optimize = {
+  title:"Ready to optimize your code ?",
+  para:"Sign up now for unlimited access to our Time Complexity Analyzer"
+  ,btn:"Sign up for free"
+}
