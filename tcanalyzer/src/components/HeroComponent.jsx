@@ -3,9 +3,9 @@ import Typewriter from "typewriter-effect";
 import {Headers} from '../api/HeaderData'
 const HeroComponent = () => {
   return (
-    <div className="  container m-auto h-[93vh]">
+    <div className=" m-auto ">
       <div
-        className=" h-[80vh] flex items-center justify-center
+        className=" flex h-[49vw] w-full items-center justify-center
         p-3 md:bg-gradient-to-r md:from-slate-700 md:via-slate-800
           to-slate-300 bg-slate"
       >
