@@ -4,7 +4,7 @@ console.log(keyFeature);
 import FeaturePage from "../page/FeaturePage";
 const FeaturesComponent = () => {
   return (
-    <div className="  h-[49vw] ">
+    <div className=" h-[100%]  mt-[2%] sm:mt[100%]">
       <div className=" text-center">
         <span className=" text-white   font-header-font  text-4xl">
           Key-Features
