@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@firebase/auth": "^1.7.9",
+    "firebase": "^10.14.1",
+    "firebaseui": "^6.1.0",
     "framer-motion": "^12.0.0-alpha.0",
     "locomotive-scroll": "^4.1.4",
     "react": "^18.3.1",

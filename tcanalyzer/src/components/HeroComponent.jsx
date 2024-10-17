@@ -1,15 +1,16 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 import {Headers} from '../api/HeaderData'
+import { Link } from "react-router-dom";
 const HeroComponent = () => {
   return (
     <div className=" m-auto ">
       <div
-        className=" flex h-[49vw] w-full items-center justify-center
+        className=" flex h-[50vw] justify-center pt-12
         p-3 md:bg-gradient-to-r md:from-slate-700 md:via-slate-800
           to-slate-300 bg-slate"
       >
-        <div className=" text-center  items-center ">
+        <div className=" text-center">
           <h1 className=" font-extrabold text-5xl text-white">
             Analyze Your Code's
           </h1>
@@ -23,12 +24,13 @@ const HeroComponent = () => {
               }}
             />
           </span>
-          <p className=" text-orange-100 font-extrabold animate-pulse">
+          <p className=" text-orange-100  text-xl animate-pulse">
             {Headers.para}
           </p>
           <br />
           {/* Buttons */}
-          <button
+            <Link to='/analyzer'>
+            <button
             className=" inline-flex p-4  items-center
            bg-green-100 rounded-2xl border-0 focus:outline-none hover:animate-pulse 
             hover:text-black font-bold  shadow-lg text-base mt-4 md:mt-0"
@@ -46,6 +48,8 @@ const HeroComponent = () => {
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
           </button>
+            </Link>
+           
         </div>
       </div>
     </div>
