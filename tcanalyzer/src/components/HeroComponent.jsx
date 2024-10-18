@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Typewriter from "typewriter-effect";
 import {Headers} from '../api/HeaderData'
 import { Link } from "react-router-dom";
 const HeroComponent = () => {
+
   return (
     <div className=" m-auto ">
       <div
@@ -30,7 +31,7 @@ const HeroComponent = () => {
           <br />
           {/* Buttons */}
             <Link to='/analyzer'>
-            <button
+            <button 
             className=" inline-flex p-4  items-center
            bg-green-100 rounded-2xl border-0 focus:outline-none hover:animate-pulse 
             hover:text-black font-bold  shadow-lg text-base mt-4 md:mt-0"

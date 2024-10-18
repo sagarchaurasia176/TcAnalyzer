@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { GlobalContext } from "../Context/AnalyxerContext";
+import SingupWithGoogle from "../Form/SingupWithGoogle";
+import ProfileDataDisplay from "../core/data/ProfileDataDisplay";
 
 const HeaderBar = () => {
   const [show, setShow] = useState(false);
-
+  const { userData } = useContext(GlobalContext);
   return (
     <div>
-      <div className="bg-slate-800   pt-2 pb-4">
+      <div
+        style={{
+          backgroundColor: "#0D1520",
+        }}
+        className="  p-4 pb-4"
+      >
         <header className="text-gray-600 body-font flex justify-between items-center">
           <div>
-            <Link className="flex title-font font-medium items-center text-gray-900 md:mb-0">
+            <Link
+              to="/"
+              className="flex title-font font-medium items-center text-gray-900 md:mb-0"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -37,29 +48,14 @@ const HeaderBar = () => {
               <Link to="/pricing">Pricing</Link>
             </nav>
           </div>
-          <div className=" flex  space-x-4">
-            <button
-              className=" flex items-center bg-slate-900 text-white border-0 py-2 px-3 focus:outline-none hover:animate-pulse  hover:text-black rounded-xl text-base mt-4 md:mt-0"
-            >
-              Sing in
-              <svg
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                className="w-4 h-4 ml-1"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </button>
-            
-          <button className="lg:hidden md:block sm:block  items-center border-0 py-1 px-3 focus:outline-none hover:animate-pulse  hover:text-black text-yellow-50 rounded-xl text-base mt-4 md:mt-0">
-            <FaBarsStaggered />
-          </button>
-          </div>
+          <div className=" flex   space-x-4">
+            {userData ? <ProfileDataDisplay /> : <SingupWithGoogle />}
 
+            {/*other data  */}
+            <button className="lg:hidden md:block sm:block  items-center border-0 py-1 px-3 focus:outline-none hover:animate-pulse  hover:text-black text-yellow-50 rounded-xl text-base mt-4 md:mt-0">
+              <FaBarsStaggered />
+            </button>
+          </div>
         </header>
       </div>
     </div>
