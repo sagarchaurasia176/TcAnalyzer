@@ -113,6 +113,12 @@ export const GlobalContextFunction = ({ children }) => {
     moveToLogPage("/");
   };
 
+  // geminManagement
+
+
+
+
+
   // states
   const values = {
     loading,
