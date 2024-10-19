@@ -6,7 +6,7 @@ const TryNow = () => {
   return (
     <>
       <section
-        className=" w-full h-[80vh]
+        className=" h-[80vh] 
       p-3 md:bg-gradient-to-r md:from-slate-700 md:via-slate-900
           to-slate-100 bg-slate-800
     "
@@ -28,14 +28,14 @@ const TryNow = () => {
             >
               {tryItKnow.heading}
             </header>
-            <article className=" text-yellow-100 capitalize">
+            <article className=" text-yellow-500 capitalize">
               {tryItKnow.para}
             </article>
           </div>
 
           {/* div for video */}
           <div className=" flex items-center">
-            <h3 className=" text-white">video soon</h3>
+            <h3 className=" text-black">video soon</h3>
           </div>
         </div>
       </section>
