@@ -6,7 +6,7 @@ const FeaturesComponent = () => {
   return (
     <div className=" h-[100%]  mt-[2%] sm:mt[100%]">
       <div className=" text-center">
-        <span className=" text-white   font-header-font  text-4xl">
+        <span className=" text-black  font-header-font  text-4xl">
           Key-Features
         </span>
       </div>
