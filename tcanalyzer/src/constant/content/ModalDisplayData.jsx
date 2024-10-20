@@ -1,5 +1,6 @@
 import React from "react";
 import { AlertDialog, Button, Flex } from "@radix-ui/themes";
+import { CiLocationArrow1 } from "react-icons/ci";
 
 const ModalDisplayData = ({ modalData, result }) => {
   return (
@@ -12,10 +13,15 @@ const ModalDisplayData = ({ modalData, result }) => {
             style={{
               backgroundColor: "#0D1520",
               cursor: "pointer",
-              padding: "1rem",
+              padding: "2rem",
+              borderRadius:"2rem"
             }}
           >
-            Click To Analyze The Complexity
+            Click To Analyze 
+            <span className=" flex items-center text-2xl  animate-bounce">
+              <CiLocationArrow1/> 
+
+            </span>
           </Button>
         </AlertDialog.Trigger>
 
