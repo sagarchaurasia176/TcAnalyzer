@@ -6,7 +6,6 @@ import ModalDisplayData from "../content/ModalDisplayData";
 const API_MODAL = import.meta.env.VITE_Modal_API;
 console.log("API works fine", API_MODAL);
 
-
 // 👉Not working
 
 const PromBtn = () => {
@@ -35,12 +34,7 @@ const PromBtn = () => {
 
       const text = await results.text();
       // Ensure you access the response correctly
-      setResult(
-        {
-          ...results,
-          text,
-        } || "No Compexity genereate"
-      ); // Properly access the returned data
+      setResult(text || "error to dispay output"); // Properly access the returned data
 
       toast.dismiss(dismis);
     } catch (er) {
