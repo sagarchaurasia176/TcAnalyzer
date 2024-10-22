@@ -1,41 +1,68 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { toast } from "react-hot-toast";
 import ModalDisplayData from "../content/ModalDisplayData";
+import { GlobalContext } from "../../Context/AnalyxerContext";
 
 const API_MODAL = import.meta.env.VITE_Modal_API;
-console.log("API works fine", API_MODAL);
 
+// genertation config of gemini ai
+const generationConfig = {
+  temperature: 1,
+  topP: 0.95,
+  topK: 64,
+  maxOutputTokens: 8192,
+  responseMimeType: "application/json",
+};
 // 👉Not working
 
 const PromBtn = () => {
   const [result, setResult] = useState("");
+  const { CodeInput } = useContext(GlobalContext);
 
   async function ClickToCallModal() {
     try {
       const dismis = toast.loading("Loading...");
-
       // Initialize the Google Generative AI instance
       const genAI = new GoogleGenerativeAI({
-        apiKey: import.meta.env.VITE_Modal_API, // Ensure the correct API key usage
+        apiKey: API_MODAL, // Ensure the correct API key usage
       });
 
       const model = await genAI.getGenerativeModel({
         model: "gemini-1.5-flash",
       });
+      // const prompt =
+      //   "Analyze the time complexity of the following code and provide only time complexity no explain";
 
-      const prompt =
-        "Analyze the time complexity of the following code and provide only time complexity no explain";
+      // model.startChat({
+      //   generationConfig,
+      //   history: [
+      //     {
+      //       role: "user",
+      //       parts: [
+      //         {
+      //           text: CodeInput,
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       role: "model",
+      //       parts: [
+      //         {
+      //           text: prompt,
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // });
 
       // Call the API with the model and prompt
-      const results = await model.generateContent({
-        prompt,
-      });
-
+      const results = await model.generateContent();
       const text = await results.text();
-      // Ensure you access the response correctly
-      setResult(text || "error to dispay output"); // Properly access the returned data
+      console.log(text);
 
+      // Ensure you access the response correctly
+      setResult(text); // Properly access the returned data
       toast.dismiss(dismis);
     } catch (er) {
       console.error(er);
@@ -43,6 +70,7 @@ const PromBtn = () => {
     }
   }
 
+  // Reurn apply there so we get !
   return (
     <>
       <ModalDisplayData modalData={ClickToCallModal} result={result} />

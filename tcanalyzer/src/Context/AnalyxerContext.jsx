@@ -16,6 +16,13 @@ export const GlobalContextFunction = ({ children }) => {
   const [error, setError] = useState(false);
   const [googleErrorMessage, setGoogleErrorMessage] = useState("");
   const [locallyStoredData, setLocalData] = useState("");
+  // main state for model purpose 
+  const[CodeInput , setCodeInput] = useState('')
+  const[promptValue,setPromotValue] = useState([]);
+
+
+
+
   const navigate = useNavigate();
   // move to analyzer page
   const moveToAnalyzer = () => {
@@ -121,6 +128,10 @@ export const GlobalContextFunction = ({ children }) => {
 
   // states
   const values = {
+    CodeInput,
+    setCodeInput,
+    promptValue,
+    setPromotValue,
     loading,
     setLoad,
     error,
