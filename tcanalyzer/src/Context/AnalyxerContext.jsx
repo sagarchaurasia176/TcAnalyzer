@@ -16,12 +16,9 @@ export const GlobalContextFunction = ({ children }) => {
   const [error, setError] = useState(false);
   const [googleErrorMessage, setGoogleErrorMessage] = useState("");
   const [locallyStoredData, setLocalData] = useState("");
-  // main state for model purpose 
-  const[CodeInput , setCodeInput] = useState('')
-  const[promptValue,setPromotValue] = useState([]);
-
-
-
+  // main state for model purpose
+  const [CodeInput, setCodeInput] = useState('');
+  const [promptValue, setPromotValue] = useState([]);
 
   const navigate = useNavigate();
   // move to analyzer page
@@ -50,9 +47,6 @@ export const GlobalContextFunction = ({ children }) => {
     });
   }, [auth]);
 
-
-
-  
   // Handle user sign up with google
   const handleGoogleSignUp = async (e) => {
     e.preventDefault();
@@ -121,10 +115,6 @@ export const GlobalContextFunction = ({ children }) => {
   };
 
   // geminManagement
-
-
-
-
 
   // states
   const values = {

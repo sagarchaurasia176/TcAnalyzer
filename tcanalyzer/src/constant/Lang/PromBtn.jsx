@@ -7,6 +7,7 @@ import { GlobalContext } from "../../Context/AnalyxerContext";
 const API_MODAL = import.meta.env.VITE_Modal_API;
 
 // genertation config of gemini ai
+
 const generationConfig = {
   temperature: 1,
   topP: 0.95,
@@ -31,33 +32,22 @@ const PromBtn = () => {
       const model = await genAI.getGenerativeModel({
         model: "gemini-1.5-flash",
       });
-      // const prompt =
-      //   "Analyze the time complexity of the following code and provide only time complexity no explain";
+      const prompt =
+        "Analyze the time complexity of the following code and provide only time complexity no explain";
 
-      // model.startChat({
-      //   generationConfig,
-      //   history: [
-      //     {
-      //       role: "user",
-      //       parts: [
-      //         {
-      //           text: CodeInput,
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       role: "model",
-      //       parts: [
-      //         {
-      //           text: prompt,
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // });
+      model.startChat({
+        generationConfig,
+
+        history:[
+          {
+            parts : [ ]
+          }
+        ]
+        // error 
+      });
 
       // Call the API with the model and prompt
-      const results = await model.generateContent();
+      const results = await model.generateContent(history);
       const text = await results.text();
       console.log(text);
 
