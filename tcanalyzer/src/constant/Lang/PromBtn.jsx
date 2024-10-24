@@ -3,6 +3,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { toast } from "react-hot-toast";
 import ModalDisplayData from "../content/ModalDisplayData";
 import { GlobalContext } from "../../Context/AnalyxerContext";
+import axios from 'axios';
 
 const API_MODAL = import.meta.env.VITE_Modal_API;
 console.log('your api from modal')
@@ -30,18 +31,13 @@ const PromBtn = () => {
       //   model: "gemini-1.5-flash",  
       // });
 
-      const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent', {
-        method:"post",
-        headers:{
-          'Authorization' : `Bearer ${API_MODAL}`,
-          'Content-Type': 'application/json',
-        },
-        body : JSON.stringify({
+      const res = await axios.post('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent', {
+        body: JSON.stringify({
           prompt: `Analyze the following code for time complexity only not give me the descriptions:\n${CodeInput}`,
         })
       })
       
-      setPromotValue(promptValue);
+      setPromotValue(res);
 
       // const result = await model.generateContent(CodeInput);
       // const response = await result.response;
