@@ -3,10 +3,10 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { toast } from "react-hot-toast";
 import ModalDisplayData from "../content/ModalDisplayData";
 import { GlobalContext } from "../../Context/AnalyxerContext";
-import axios from 'axios';
+import axios from "axios";
 
 const API_MODAL = import.meta.env.VITE_Modal_API;
-console.log('your api from modal')
+console.log("your api from modal");
 console.log(API_MODAL);
 // genertation config of gemini ai
 
@@ -21,22 +21,25 @@ const generationConfig = {
 
 const PromBtn = () => {
   const [result, setResult] = useState("");
-  const { CodeInput ,promptValue,setPromotValue } = useContext(GlobalContext);
+  const { CodeInput, promptValue, setPromotValue } = useContext(GlobalContext);
 
   async function ClickToCallModal() {
     try {
       const dismis = toast.loading("Loading...");
- 
+
       // const model = await genAI.getGenerativeModel({
-      //   model: "gemini-1.5-flash",  
+      //   model: "gemini-1.5-flash",
       // });
 
-      const res = await axios.post('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent', {
-        body: JSON.stringify({
-          prompt: `Analyze the following code for time complexity only not give me the descriptions:\n${CodeInput}`,
-        })
-      })
-      
+      const res = await axios.post(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_MODAL}`,
+        {
+          body: JSON.stringify({
+            prompt: `Analyze the following code for time complexity only not give me the descriptions:\n${CodeInput}`,
+          }),
+        }
+      );
+
       setPromotValue(res);
 
       // const result = await model.generateContent(CodeInput);
@@ -63,7 +66,7 @@ const PromBtn = () => {
       //     }
 
       //   ]
-      //   // error 
+      //   // error
       // });
 
       // // Call the API with the model and prompt
@@ -83,7 +86,7 @@ const PromBtn = () => {
   // Reurn apply there so we get !
   return (
     <>
-    {/* this is the analyzer button logic okay  */}
+      {/* this is the analyzer button logic okay  */}
       <ModalDisplayData modalData={ClickToCallModal} result={promptValue} />
     </>
   );
