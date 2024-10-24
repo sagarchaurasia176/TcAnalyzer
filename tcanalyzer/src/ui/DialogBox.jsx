@@ -18,6 +18,7 @@ const DialogBox = ({ userData }) => {
             <img
               src={userData.profilePicture}
               style={{ width: "40px", borderRadius: "50%" }}
+              alt="Server error"
               onError={(e) => {
                 e.target.src = userData.profilePicture;
               }}

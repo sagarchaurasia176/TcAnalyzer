@@ -4,7 +4,6 @@ import DialogBox from "../../ui/DialogBox";
 
 const ProfileDataDisplay = () => {
   const { userData } = useContext(GlobalContext);
-  console.log(userData, "this is profile data");
   return (
     <div className="">
       {userData ? (

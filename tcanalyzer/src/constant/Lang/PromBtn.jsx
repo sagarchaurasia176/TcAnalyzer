@@ -5,7 +5,8 @@ import ModalDisplayData from "../content/ModalDisplayData";
 import { GlobalContext } from "../../Context/AnalyxerContext";
 
 const API_MODAL = import.meta.env.VITE_Modal_API;
-
+console.log('your api from modal')
+console.log(API_MODAL);
 // genertation config of gemini ai
 
 const generationConfig = {
@@ -19,40 +20,63 @@ const generationConfig = {
 
 const PromBtn = () => {
   const [result, setResult] = useState("");
-  const { CodeInput } = useContext(GlobalContext);
+  const { CodeInput ,promptValue,setPromotValue } = useContext(GlobalContext);
 
   async function ClickToCallModal() {
     try {
       const dismis = toast.loading("Loading...");
-      // Initialize the Google Generative AI instance
-      const genAI = new GoogleGenerativeAI({
-        apiKey: API_MODAL, // Ensure the correct API key usage
-      });
+ 
+      // const model = await genAI.getGenerativeModel({
+      //   model: "gemini-1.5-flash",  
+      // });
 
-      const model = await genAI.getGenerativeModel({
-        model: "gemini-1.5-flash",
-      });
-      const prompt =
-        "Analyze the time complexity of the following code and provide only time complexity no explain";
+      const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent', {
+        method:"post",
+        headers:{
+          'Authorization' : `Bearer ${API_MODAL}`,
+          'Content-Type': 'application/json',
+        },
+        body : JSON.stringify({
+          prompt: `Analyze the following code for time complexity only not give me the descriptions:\n${CodeInput}`,
+        })
+      })
+      
+      setPromotValue(promptValue);
 
-      model.startChat({
-        generationConfig,
+      // const result = await model.generateContent(CodeInput);
+      // const response = await result.response;
+      // const texts = await response.text();
+      // setPromotValue([
+      //   ...promptValue,
+      //   texts
+      // ])
 
-        history:[
-          {
-            parts : [ ]
-          }
-        ]
-        // error 
-      });
+      // model.startChat({
+      //   generationConfig,
 
-      // Call the API with the model and prompt
-      const results = await model.generateContent(history);
-      const text = await results.text();
-      console.log(text);
+      //   history:[
+      //     {
+      //       role:"user",
+      //       parts:[
+      //         {text:CodeInput}
+      //       ]
+      //     },
+      //     {
+      //       role:"model",
+      //       parts:"Analyze the time complexity of the following code and provide only time complexity no explain"
+      //     }
 
-      // Ensure you access the response correctly
-      setResult(text); // Properly access the returned data
+      //   ]
+      //   // error 
+      // });
+
+      // // Call the API with the model and prompt
+      // const results = await model.generateContent(history);
+      // const text = await results.text();
+      // console.log(text);
+
+      // // Ensure you access the response correctly
+      // setResult(text); // Properly access the returned data
       toast.dismiss(dismis);
     } catch (er) {
       console.error(er);
@@ -63,7 +87,8 @@ const PromBtn = () => {
   // Reurn apply there so we get !
   return (
     <>
-      <ModalDisplayData modalData={ClickToCallModal} result={result} />
+    {/* this is the analyzer button logic okay  */}
+      <ModalDisplayData modalData={ClickToCallModal} result={promptValue} />
     </>
   );
 };

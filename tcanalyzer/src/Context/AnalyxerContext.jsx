@@ -15,7 +15,7 @@ export const GlobalContextFunction = ({ children }) => {
   const [loading, setLoad] = useState(false);
   const [error, setError] = useState(false);
   const [googleErrorMessage, setGoogleErrorMessage] = useState("");
-  const [locallyStoredData, setLocalData] = useState("");
+  const [locallyStoredData, setLocalData] = useState([]);
   // main state for model purpose
   const [CodeInput, setCodeInput] = useState('');
   const [promptValue, setPromotValue] = useState([]);

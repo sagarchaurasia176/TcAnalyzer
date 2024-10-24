@@ -4,8 +4,9 @@ import { GlobalContext } from "../../Context/AnalyxerContext";
 
 const CodeEditors = () => {
   // context api
-  const { CodeInput, setCodeInput } = useContext(GlobalContext);
-
+  const { CodeInput, setCodeInput} = useContext(GlobalContext);
+  console.log("code input");
+  console.log(CodeInput);
   const editorRef = useRef(null);
   function handleEditorDidMount(editor, monaco) {
     editorRef.current = editor;
@@ -17,12 +18,14 @@ const CodeEditors = () => {
     setCodeInput(e.target.value);
   };
 
+
   // VITE_Modal_API
   return (
-    <div>
+    <div> 
       <div className=" container w-[100%] lg:w-[65%] md:w-[75%] sm:w-[30%]  rounded-lg m-auto bg-slate-800">
-        <Editor
+        <Editor 
           height="75vh"
+          name="CodeInput"
           value={CodeInput}
           onChange={ChangeHandler}
           className=" mt-1  rounded-md  bg-slate-500"
