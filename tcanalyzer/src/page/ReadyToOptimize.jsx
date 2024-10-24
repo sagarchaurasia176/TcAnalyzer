@@ -5,12 +5,11 @@ const ReadyToOptimize = () => {
   return (
     <>
       <section
-        className=" h-[80vh]  
-      p-3 md:bg-gradient-to-r md:from-inherit md:via-orange-200
-          to-orange-400 
+        className="
+      p-3  
     "
       >
-        <main className="  relative   top-40 ">
+        <main className="  relative   top-12 ">
           <header
             className=" 
                text-center text-orange-500 font-header-font text-5xl"
@@ -18,10 +17,8 @@ const ReadyToOptimize = () => {
             {optimize.title}
           </header>
           <br />
-          <article className=" text-center  text-black font-light capitalize">
-            {optimize.para}
-          </article>
-          <div className=" flex justify-center top-14 relative">
+
+          <div className=" flex  justify-center  left-10  center relative">
             <SingupWithGoogle />
           </div>
         </main>

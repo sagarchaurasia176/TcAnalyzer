@@ -1,8 +1,8 @@
 import React from "react";
-import { AlertDialog, Button, Flex } from "@radix-ui/themes";
+import { AlertDialog, Button, Spinner } from "@radix-ui/themes";
 import { CiLocationArrow1 } from "react-icons/ci";
 
-const ModalDisplayData = ({ modalData, result }) => {
+const ModalDisplayData = ({ modalData, result, loading }) => {
   return (
     <div>
       <AlertDialog.Root>
@@ -14,49 +14,86 @@ const ModalDisplayData = ({ modalData, result }) => {
               backgroundColor: "#0D1520",
               cursor: "pointer",
               padding: "2rem",
-              borderRadius:"2rem"
+              borderRadius: "2rem",
             }}
           >
-            Click To Analyze 
-            <span className=" flex items-center text-2xl  animate-bounce">
-              <CiLocationArrow1/> 
-
+            Click To Analyze
+            <span className="flex items-center text-2xl animate-bounce">
+              <CiLocationArrow1 />
             </span>
           </Button>
         </AlertDialog.Trigger>
 
         {/* Modal Content */}
-        <AlertDialog.Content maxWidth="650px" height="30rem">
+        <AlertDialog.Content
+          style={{
+            backgroundColor: "white", // Background color of the content
+            color: "black", // Text color inside the content
+            borderColor: "gray", // Border color for the content
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Light shadow for depth effect
+            padding: "1.5rem", // Padding inside the content
+            borderRadius: "10px", // Rounded corners for the dialog
+
+            // Set responsive width and max-width
+            width: "90%", // Take up most of the screen width on small screens
+            maxWidth: "600px", // Limit to 600px on larger screens
+            margin: "0 auto", // Center the modal
+
+            // Responsive design using media queries
+            "@media (max-width: 768px)": {
+              fontSize: "1rem", // Smaller font on mobile
+              padding: "1rem", // Less padding on mobile
+            },
+          }}
+        >
           <AlertDialog.Title
             style={{
               fontFamily: "sans-serif",
-              fontSize: "2rem",
-              fontWeight: "bolder",
+              fontSize: "1rem",
+              color:"red",
+              borderBottom:"2px solid blue",
+              marginBottom: "1rem",
+              textAlign: "center", // Center the title text
             }}
           >
-            {/* Time Complexity Analysis */}
+            Time Complexity Analysis
           </AlertDialog.Title>
 
           <AlertDialog.Description
             size="2"
             style={{
+              textTransform: "capitalize",
               color: "black",
+              display: "flex",
+              justifyContent: "center",
+              fontWeight: "bold",
+              wordSpacing: "4px",
               fontFamily: "sans-serif",
-              fontSize: "1.5rem",
-              fontWeight: "bolder",
             }}
           >
-            {result || "No result available"} {/* Ensure result displays */}
+            {loading ? (
+              <Spinner className="size-32 m-auto flex justify-center" />
+            ) : (
+              <p>{result}</p>
+            )}
           </AlertDialog.Description>
 
-          {/* Close Button */}
-          <Flex gap="3" mt="4" justify="end">
-            <AlertDialog.Cancel>
-              <Button variant="soft" color="red">
-                Close
-              </Button>
-            </AlertDialog.Cancel>
-          </Flex>
+          <br />
+
+          <AlertDialog.Cancel>
+            <Button
+              variant="soft"
+              style={{
+                borderRadius: "12px",
+                cursor: "pointer",
+                padding: "1rem",
+                width: "100%", // Full width for mobile devices
+              }}
+              color="gray"
+            >
+              Close
+            </Button>
+          </AlertDialog.Cancel>
         </AlertDialog.Content>
       </AlertDialog.Root>
     </div>

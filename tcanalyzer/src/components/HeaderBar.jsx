@@ -5,6 +5,12 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 import { GlobalContext } from "../Context/AnalyxerContext";
 import SingupWithGoogle from "../Form/SingupWithGoogle";
 import ProfileDataDisplay from "../core/data/ProfileDataDisplay";
+import {
+  AiFillHome,
+  AiOutlineMail,
+  AiFillInfoCircle,
+  AiOutlineQuestionCircle,
+} from "react-icons/ai";
 
 const HeaderBar = () => {
   const [show, setShow] = useState(false);
@@ -40,12 +46,28 @@ const HeaderBar = () => {
               </b>
             </Link>
           </div>
-          <div className="flex  max-0 items-center">
-            <nav className=" hidden lg:flex lg:justify-around sm:hidden md:hidden  transition-all transform  text-white space-x-12">
-              <Link to="/">Home</Link>
-              <Link to="/contact">Contact</Link>
-              <Link to="/about">About us</Link>
-              <Link to="/pricing">Pricing</Link>
+
+          <div className="flex max-0 items-center">
+            <nav className="hidden lg:flex lg:justify-around sm:hidden md:hidden transition-all transform text-white space-x-12">
+              <Link to="/" className=" flex justify-center items-center  gap-2">
+                <AiFillHome className="" />
+                Home
+              </Link>
+              <Link
+                to="/contact"
+                className=" flex justify-center items-center  gap-2"
+              >
+                <AiOutlineMail className="" />
+                Contact
+              </Link>
+              <Link
+                to="/about"
+                className=" flex justify-center items-center  gap-2"
+              >
+                <AiFillInfoCircle className="" />
+                About Me
+              </Link>
+          
             </nav>
           </div>
           <div className=" flex   space-x-4">

@@ -6,16 +6,20 @@ import { Routes, Route } from "react-router-dom";
 import AnalyzerModal from "./constant/AnalyzerModal";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import ContactPage from "./others/ContactPage";
+import AboutPage from "./others/AboutPage";
 // Appp functions
 const App = () => {
   return (
-    <div>
+    <div className="">
       <Theme>
         <HeaderBar />
-        <div>
+        <div className=" bg-slate-900 text-white ">
           <Routes>
             <Route path="/" element={<MainContent />}></Route>
             <Route path="/analyzer" element={<AnalyzerModal />}></Route>
+            <Route path="/contact" element={<ContactPage/>}></Route>
+            <Route path="/about" element={<AboutPage/>}></Route>
           </Routes>
         </div>
       </Theme>

@@ -18,7 +18,7 @@ export const GlobalContextFunction = ({ children }) => {
   const [locallyStoredData, setLocalData] = useState([]);
   // main state for model purpose
   const [CodeInput, setCodeInput] = useState('');
-  const [promptValue, setPromotValue] = useState([]);
+  const [promptValue, setPromotValue] = useState('');
 
   const navigate = useNavigate();
   // move to analyzer page

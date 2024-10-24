@@ -1,41 +1,38 @@
 import React from "react";
 import { tryItKnow } from "../api/HeaderData";
+import complexity from "../assets/complexity.webm";
 
-// Try now
 const TryNow = () => {
   return (
     <>
-      <section
-        className=" h-[80vh] 
-      p-3 md:bg-gradient-to-r md:from-slate-700 md:via-slate-900
-          to-slate-100 bg-slate-800
-    "
-      >
-        <header
-          className=" 
-               text-center text-white font-header-font text-5xl"
-        >
+      <section className="min-h-[50vh] p-1">
+        {/* Title */}
+        <header className="text-center text-white font-header-font text-3xl md:text-4xl lg:text-5xl">
           {tryItKnow.title}
         </header>
+
         <br />
-        <div className=" flex flex-col-1 justify-around flex-wrap  flex-row sm:flex-row md:flex-row rounded-lg m-auto ">
-          {/* first data */}
-          <div className="">
-            <br />
-            <header
-              className="
-         text-white font-header-font text-3xl"
-            >
+
+        <div className="flex flex-col sm:flex-row justify-around flex-wrap rounded-lg m-auto">
+          {/* First data block */}
+          <div className="text-center sm:text-left">
+            <header className="text-white font-header-font text-2xl md:text-3xl lg:text-4xl">
               {tryItKnow.heading}
             </header>
-            <article className=" text-yellow-500 capitalize">
+            <article className="text-yellow-500 capitalize mt-2">
               {tryItKnow.para}
             </article>
           </div>
+        </div>
 
-          {/* div for video */}
-          <div className=" flex items-center">
-            <h3 className=" text-black">video soon</h3>
+        <br />
+
+        {/* Video Section */}
+        <div className=" p-4 bg-slate-800">
+          <div className="flex items-center justify-center  ">
+            <div className="w-[90%] md:w-[80%] lg:w-[70%] m-auto">
+              <video className="" autoPlay muted loop src={complexity} />
+            </div>
           </div>
         </div>
       </section>
