@@ -6,9 +6,10 @@ import { GlobalContext } from "../../Context/AnalyxerContext";
 import axios from "axios";
 
 const API_MODAL = import.meta.env.VITE_Modal_API;
-console.log("your api from modal");
-console.log(API_MODAL);
-// genertation config of gemini ai
+// fianl api url here
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_MODAL}`;
+console.log("api url");
+console.log(API_URL);
 
 const generationConfig = {
   temperature: 1,
@@ -31,14 +32,14 @@ const PromBtn = () => {
       //   model: "gemini-1.5-flash",
       // });
 
-      const res = await axios.post(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_MODAL}`,
-        {
-          body: JSON.stringify({
-            prompt: `Analyze the following code for time complexity only not give me the descriptions:\n${CodeInput}`,
-          }),
-        }
-      );
+      const res = await axios.post(API_URL,
+      {
+        body: JSON.stringify({
+          prompt: `Analyze the following code for time complexity only not give me the descriptions:\n${CodeInput}`,
+        }),
+      }
+    
+    );
 
       setPromotValue(res);
 
