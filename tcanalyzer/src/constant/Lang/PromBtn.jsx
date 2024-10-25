@@ -3,7 +3,6 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { toast } from "react-hot-toast";
 import ModalDisplayData from "../content/ModalDisplayData";
 import { GlobalContext } from "../../Context/AnalyxerContext";
-import axios from "axios";
 
 const API_MODAL = import.meta.env.VITE_Modal_API;
 
@@ -13,9 +12,9 @@ const PromBtn = () => {
   // geminin config
   const genAI = new GoogleGenerativeAI(API_MODAL);
   const Prompts = `Analyze the time complexity of the given code and provide a **short** description in 1 sentences: ${CodeInput}`;
+
   // PromptHandler
   const ClickToCallModal = async () => {
-    const toastId = toast.loading("loading....");
     try {
       setLoad(true);
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
@@ -27,12 +26,9 @@ const PromBtn = () => {
       const maxSentences = 2;
       const trimmedText =
         text.split(". ").slice(0, maxSentences).join(". ") + ".";
-
       setPromotValue(trimmedText);
       setLoad(false);
-      toast.dismiss(toastId);
     } catch (er) {
-      toast.remove("");
       console.error(er);
       toast.error("error to analyze your code");
     }
