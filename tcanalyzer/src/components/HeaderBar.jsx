@@ -15,13 +15,18 @@ import {
 const HeaderBar = () => {
   const [show, setShow] = useState(false);
   const { userData } = useContext(GlobalContext);
+
+  const Hamburger = () => {
+      setShow((prev)=> !prev);
+  };
+
   return (
     <div>
       <div
         style={{
           backgroundColor: "#0D1520",
         }}
-        className="  p-4 pb-4"
+        className="  p-2 pb-5 "
       >
         <header className="text-gray-600 body-font flex justify-between items-center">
           <div>
@@ -46,7 +51,6 @@ const HeaderBar = () => {
               </b>
             </Link>
           </div>
-
           <div className="flex max-0 items-center">
             <nav className="hidden lg:flex lg:justify-around sm:hidden md:hidden transition-all transform text-white space-x-12">
               <Link to="/" className=" flex justify-center items-center  gap-2">
@@ -67,18 +71,57 @@ const HeaderBar = () => {
                 <AiFillInfoCircle className="" />
                 About Me
               </Link>
-          
             </nav>
           </div>
-          <div className=" flex   space-x-4">
-            {userData ? <ProfileDataDisplay /> : <SingupWithGoogle />}
 
-            {/*other data  */}
-            <button className="lg:hidden md:block sm:block  items-center border-0 py-1 px-3 focus:outline-none hover:animate-pulse  hover:text-black text-yellow-50 rounded-xl text-base mt-4 md:mt-0">
-              <FaBarsStaggered />
+          <div className=" space-x-4 flex">
+            <div className=" hidden lg:inline-block ">
+            {userData ? <ProfileDataDisplay /> : <SingupWithGoogle />}
+            </div>
+           
+            <button
+              onClick={Hamburger}
+              className="lg:hidden items-center border-0 py-1 px-3 focus:outline-none hover:animate-pulse hover:text-black text-yellow-50 rounded-xl text-base"
+            >
+              {show ? <IoIosCloseCircleOutline /> : <FaBarsStaggered />}
             </button>
           </div>
+
         </header>
+
+        {/* mobile menu  */}
+        {show && (
+          <div className="lg:hidden mt-4 space-y-2 text-white">
+            <Link
+              to="/"
+              className="block px-4 py-2 hover:bg-gray-700 rounded-md"
+              onClick={Hamburger}
+            >
+              <AiFillHome className="inline mr-2" /> Home
+            </Link>
+            <Link
+              to="/contact"
+              className="block px-4 py-2 hover:bg-gray-700 rounded-md"
+              onClick={Hamburger}
+            >
+              <AiOutlineMail className="inline mr-2" /> Contact
+            </Link>
+            <Link
+              to="/about"
+              className="block px-4 py-2 hover:bg-gray-700 rounded-md"
+              onClick={Hamburger}
+            >
+              <AiFillInfoCircle className="inline mr-2" /> About Me
+            </Link>
+            <div className=" flex  bg-slate-700 ">
+            {userData ? <ProfileDataDisplay /> : <SingupWithGoogle />}
+            </div>
+           
+          </div>
+        )}
+
+
+
       </div>
     </div>
   );

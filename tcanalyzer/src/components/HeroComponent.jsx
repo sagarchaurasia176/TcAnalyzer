@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const HeroComponent = () => {
   return (
-    <div className="m-auto">
+    <div className="  ">
       <div
         className="flex justify-center pt-12 p-3 bg-slate-900 
           h-[80vh] md:h-[50vh] lg:h-[90vh]"
@@ -24,7 +24,7 @@ const HeroComponent = () => {
               }}
             />
           </span>
-          <p className="text-lg md:text-xl lg:text-2xl text-orange-100 animate-pulse mt-4">
+          <p className="text-lg md:text-xl lg:text-2xl text-orange-400 animate-pulse mt-4">
             {Headers.para}
           </p>
           <br />
@@ -32,8 +32,8 @@ const HeroComponent = () => {
           <Link to="/analyzer">
             <button
               className="inline-flex p-3 md:p-4 items-center
-              bg-green-100 rounded-2xl border-0 focus:outline-none hover:animate-pulse
-              hover:text-black font-bold animate-bounce shadow-lg text-base md:text-lg lg:text-xl mt-4 md:mt-6"
+               bg-slate-700 rounded-2xl border-0 focus:outline-none hover:animate-pulse
+             font-bold animate-bounce shadow-lg text-base md:text-lg lg:text-xl mt-4 md:mt-6"
             >
               Visitor Click Here
               <svg

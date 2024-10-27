@@ -1,11 +1,11 @@
 import React from "react";
-
+import Shapes from "../Dividers/Shapes";
 const FeaturePage = ({ data }) => {
   return (
-    <section className="   ">
+    <section className=" ">
       {/* card */}
       <div 
-        className="bg-white cursor-pointer  hover:animate-pulse 
+        className="bg-white w-[100%] cursor-pointer  hover:animate-pulse  hover:rotate-6 hover:scale-110
        hover:bg-slate-100 transition duration-300 ease-in-out   text-center rounded-lg shadow-md p-4"
       >
         <div className="text-black m-auto">
@@ -25,6 +25,8 @@ const FeaturePage = ({ data }) => {
           </div>
         </div>
       </div>
+      <Shapes/>
+
     </section>
   );
 };

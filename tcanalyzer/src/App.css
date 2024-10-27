@@ -13,10 +13,10 @@
   padding: 0px;
   margin: 0px;
 }
-html body {
+html ,
+body {
   width: 100%;
   height: 100%;
-  
   background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(2, 0, 31) 100%);
 }
 h1 {
@@ -30,4 +30,25 @@ h4,
 h2 {
   font-family: "Aboreto", system-ui;
   font-weight: bolder;
+}
+
+.custom-shape-divider-bottom-1730050956 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1730050956 svg {
+  position: relative;
+  display: block;
+  width: calc(183% + 1.3px);
+  height: 309px;
+}
+
+.custom-shape-divider-bottom-1730050956 .shape-fill {
+  fill: #ffffff5b;
 }

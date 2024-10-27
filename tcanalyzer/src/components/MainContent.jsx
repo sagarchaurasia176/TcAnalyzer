@@ -17,7 +17,7 @@ const MainContent = () => {
         </div>
         {/* feture component */}
 
-        <div className=" p-2">
+        <div className="">
           <FeaturesComponent />
         </div>
         <br />
