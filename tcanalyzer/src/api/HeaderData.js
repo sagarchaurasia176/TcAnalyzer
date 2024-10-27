@@ -11,7 +11,7 @@ export const keyFeature = [
   {
     id: 1,
     head: "Instant Analysis",
-    para: "Get Immediate feedback on your code's tume compllexity with just one click",
+    para: "Get Immediate feedback on your code's tume complexity with just one click",
     icons: TbBrandSpeedtest,
   },
 

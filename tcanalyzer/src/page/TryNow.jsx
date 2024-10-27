@@ -5,7 +5,7 @@ import complexity from "../assets/complexity.webm";
 const TryNow = () => {
   return (
     <>
-      <section className="min-h-[50vh] p-1">
+      <section className=" h-[100%]   bg-slate-900 mt-[20%] p-12">
         {/* Title */}
         <header className="text-center text-white font-header-font text-3xl md:text-4xl lg:text-5xl">
           {tryItKnow.title}
@@ -28,9 +28,9 @@ const TryNow = () => {
         <br />
 
         {/* Video Section */}
-        <div className=" p-4 bg-slate-800">
+        <div className=" bg-slate-800">
           <div className="flex items-center justify-center  ">
-            <div className="w-[90%] md:w-[80%] lg:w-[70%] m-auto">
+            <div className="w-[100%] md:w-[80%]  lg:w-[70%] m-auto">
               <video className="" autoPlay muted loop src={complexity} />
             </div>
           </div>

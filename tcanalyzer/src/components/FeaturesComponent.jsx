@@ -1,21 +1,20 @@
 import React from "react";
 import { keyFeature } from "../api/HeaderData";
-console.log(keyFeature);
 import FeaturePage from "../page/FeaturePage";
+
 const FeaturesComponent = () => {
   return (
-    <div className=" h-[100%]  mt-[2%] sm:mt[100%]">
-      <div className=" text-center">
-        <span className=" text-black  font-header-font  text-4xl">
-          Key-Features
-        </span>
+    <div className="w-full p-4">
+      <div className="text-center mb-4">
+        <span className="text-white font-header-font text-4xl">Key Features</span>
       </div>
-      <br />
 
-      {/* cards */}
-      <div className="grid grid-cols-1 gap-3   mt-32  lg:grid-cols-3  md:grid-cols-3 sm:grid-cols-2 content-center items-center p-4">
+      {/* Responsive Cards */}
+      <div className="flex flex-wrap gap-4 justify-center">
         {keyFeature.map((data, id) => (
-          <FeaturePage data={data} key={id} />
+          <div key={id} className="sm:w-[48%] md:w-[30%] lg:w-[50%] p-2">
+            <FeaturePage data={data} />
+          </div>
         ))}
       </div>
     </div>
