@@ -11,7 +11,7 @@ const PromBtn = () => {
   const [loading, setLoad] = useState(false);
   // geminin config
   const genAI = new GoogleGenerativeAI(API_MODAL);
-  const Prompts = `Analyze the time complexity of the given code and provide a **short** description in 1 sentences: ${CodeInput}`;
+  const Prompts = `Analyze the time complexity of the given code and provide a **short** description in 1 sentences: also tell me the space complexity  ${CodeInput}`;
 
   // PromptHandler
   const ClickToCallModal = async () => {
