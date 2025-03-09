@@ -17,7 +17,7 @@ const PromBtn = () => {
   const ClickToCallModal = async () => {
     try {
       setLoad(true);
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
       const prompt = await Prompts;
       const result = await model.generateContent(prompt);
       const response = await result.response;
