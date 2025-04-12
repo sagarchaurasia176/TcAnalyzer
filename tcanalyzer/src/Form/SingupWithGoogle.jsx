@@ -7,16 +7,7 @@ const SingupWithGoogle = () => {
   return (
     <div className="signupContainer ">
       <div className="signupContainer__box__google  ">
-        <button
-          className="   flex items-center gap-2   mr-12 p-2 rounded-md text-white"
-          onClick={handleGoogleSignUp}
-        >
-          Sign Up
-          <span className=" text-black-400">
-            {/* <img src={googleLogo} alt="Google Logo" /> */}
-            <FaArrowRight />
-          </span>
-        </button>
+    
       </div>
     </div>
   );
